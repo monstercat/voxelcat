@@ -62,6 +62,11 @@ function defaultSetup(game, avatar) {
   // toggle between first and third person modes
   window.addEventListener('keydown', function (ev) {
     if (ev.keyCode === 'R'.charCodeAt(0)) avatar.toggle()
+    if(ev.keyCode === 13){
+      $('chat-input').focus();
+      console.log('press enter');
+      console.log(ev.keyCode);
+    }
   })
 
   bartab.on("select", function(item){

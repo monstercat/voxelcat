@@ -1258,3 +1258,30 @@ select {
   -webkit-transform: translate3d(100%, 0, 0);
           transform: translate3d(100%, 0, 0);
 }
+
+
+/* chat window */
+.chat-window{
+  width: 30%;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-color: rgba(41, 37, 37, 0.34);
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+  margin: 0px 15px 0px 0px;
+}
+
+.chat-pre{
+  width: 80px;
+  height: 200px;
+}
+
+.chat-window .chat-input{
+  margin: 0px;
+  height: 10px;
+}
+
+
+
+
