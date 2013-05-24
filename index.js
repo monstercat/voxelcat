@@ -7,11 +7,15 @@ var extend = require('extend')
 var toolbar = require('toolbar')
 var bartab = toolbar('.bar-tab')
 var generate = require('./lib/generator')
+var rescue = require('voxel-rescue')
+var THREE = require('three')
+
+var generateRange = 30;
 
 module.exports = function(opts, setup) {
   setup = setup || defaultSetup
   var defaults = {
-    generate: generate,
+    generate: generate(generateRange),
     chunkDistance: 2,
     materials: [
       ['grass', 'dirt', 'grass_dirt'],
@@ -39,8 +43,17 @@ module.exports = function(opts, setup) {
   // create the player from a minecraft skin file and tell the
   // game to use it as the main player
   var avatar = createPlayer(opts.playerSkin || 'player.png')
+  var startPos = new THREE.Vector3(2, 14, 4);
   avatar.possess()
-  avatar.yaw.position.set(2, 14, 4)
+  avatar.yaw.position.copy(startPos)
+
+  rescue(game, avatar, {
+    position: startPos,
+    dangerZone: {
+      lower: {x: -Infinity, y: -200, z: -Infinity},
+      upper: {x: Infinity, y: -generateRange, z: Infinity}
+    }
+  })
 
   game.avatar = avatar
   setup(game, avatar)
@@ -54,6 +67,7 @@ function defaultSetup(game, avatar) {
   var blockPosPlace, blockPosErase
   var hl = game.highlighter = highlight(game, { color: 0xff0000 })
   var mat = 3;
+
   hl.on('highlight', function (voxelPos) { blockPosErase = voxelPos })
   hl.on('remove', function (voxelPos) { blockPosErase = null })
   hl.on('highlight-adjacent', function (voxelPos) { blockPosPlace = voxelPos })
