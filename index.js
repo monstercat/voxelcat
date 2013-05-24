@@ -63,8 +63,8 @@ function defaultSetup(game, avatar) {
   window.addEventListener('keydown', function (ev) {
     if (ev.keyCode === 'R'.charCodeAt(0)) avatar.toggle()
     if(ev.keyCode === 13){
-      $('chat-input').focus();
       console.log('press enter');
+      document.getElementById("chat-input").focus();
       console.log(ev.keyCode);
     }
   })
