@@ -6,11 +6,12 @@ var voxel = require('voxel')
 var extend = require('extend')
 var toolbar = require('toolbar')
 var bartab = toolbar('.bar-tab')
+var generate = require('./lib/generator')
 
 module.exports = function(opts, setup) {
   setup = setup || defaultSetup
   var defaults = {
-    generate: voxel.generator.Valley,
+    generate: generate,
     chunkDistance: 2,
     materials: [
       ['grass', 'dirt', 'grass_dirt'],
@@ -41,10 +42,7 @@ module.exports = function(opts, setup) {
   avatar.possess()
   avatar.yaw.position.set(2, 14, 4)
 
-  game.avatar = avatar;
-
-  console.log(avatar);
-
+  game.avatar = avatar
   setup(game, avatar)
   
   return game
