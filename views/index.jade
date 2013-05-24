@@ -1,9 +1,6 @@
 extends layout
 
 block content
-
-
-
     img.logo(src="logo-white.png")
     #container
     #crosshair
@@ -19,4 +16,7 @@ block content
           a(href="")
             img.tab-icon(src="/public/textures/crate.png")
             .tab-tabel Brink
-
+    .chat-window
+      .chat-pre
+        .chat-line Hello everyone, welcome to the voxedl world
+      input#chat-input.chat-input(type='text')

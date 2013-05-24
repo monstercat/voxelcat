@@ -25,6 +25,7 @@
     "underscore": "*",
     "extend": "1.1.3",
     "browserify": "2.14.2",
+    "three": "*",
     "beefy": "0.0.11"
   },
   "scripts": {
