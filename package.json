@@ -1,13 +1,13 @@
 {
-  "name": "voxel-hello-world",
+  "name": "voxelcat",
   "version": "0.5.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:maxogden/voxel-hello-world.git"
+    "url": "git@github.com:monstercat/voxelcat.git"
   },
   "dependencies": {
     "voxel": "0.3.1",
-    "voxel-engine": "~0.17.0",
+    "voxel-engine": "0.16.3",
     "voxel-highlight": "0.0.8",
     "voxel-player": "0.1.0",
     "painterly-textures": "0.0.3",
